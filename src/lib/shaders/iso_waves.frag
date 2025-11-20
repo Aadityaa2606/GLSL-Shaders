@@ -54,7 +54,7 @@ void main() {
         vec2 center = spawnPoints[i];
         vec2 toCenter = uv - center;
         float angle = atan(toCenter.y, toCenter.x);
-        float distortion = fbm(vec2(angle * 2.0, uTime * 0.18 + float(i) * 5.0)) * 0.1;
+        float distortion = fbm(vec2(angle * 2.0, uTime * 0.18 + float(i) * 5.0)) * 0.05;
         float dist = length(toCenter) + distortion;
 
         // keep small scaling factor for consistent spacing
@@ -66,7 +66,7 @@ void main() {
 
     // Draw lines at specific iso-values
     float lineWidth = 0.05;
-    float line = step(0.02, isoPattern) * step(isoPattern, 0.03); 
+    float line = smoothstep(0.02, 0.03, isoPattern) - smoothstep(0.03, 0.04, isoPattern);
 
     // Color based on field strength
     vec3 lineColor = vec3(0.1, 0.1, 0.1);

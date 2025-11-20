@@ -107,13 +107,15 @@
 		gl.viewport(0, 0, canvas.width, canvas.height);
 
 		// Animation loop
-		let startTime = Date.now();
+		let startTime = performance.now();
 
 		const render = () => {
 			if (!gl || !program) return;
 
-			const currentTime = (Date.now() - startTime) / 1000;
+			const currentTime = (performance.now() - startTime) / 1000;
 
+			canvas.width = canvas.clientWidth * devicePixelRatio;
+			canvas.height = canvas.clientHeight * devicePixelRatio;
 			gl.viewport(0, 0, canvas.width, canvas.height);
 			gl.uniform2f(uResolution, canvas.width, canvas.height);
 			gl.uniform1f(uTime, currentTime);

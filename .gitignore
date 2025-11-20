@@ -1,4 +1,6 @@
+# Dependencies
 node_modules
+.pnpm-store
 
 # Output
 .output
@@ -7,10 +9,14 @@ node_modules
 .wrangler
 /.svelte-kit
 /build
+dist
 
 # OS
 .DS_Store
 Thumbs.db
+*.swp
+*.swo
+*~
 
 # Env
 .env
@@ -22,5 +28,35 @@ Thumbs.db
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 
+# Storybook
 *storybook.log
 storybook-static
+
+# IDE
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea
+*.sublime-project
+*.sublime-workspace
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Testing
+coverage
+.nyc_output
+
+# Misc
+.cache
+.temp
+.tmp
+
